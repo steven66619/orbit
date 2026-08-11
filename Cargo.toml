@@ -1,5 +1,5 @@
 [package]
-name = "nala"
+name = "orbit"
 version = "0.17.1"
 edition = "2024"
 license = "GPL-3.0-only"
