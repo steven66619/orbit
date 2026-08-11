@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 use crate::config::Theme;
 use crate::t;
 
-/// Transaction operation recorded and displayed by Nala.
+/// Transaction operation recorded and displayed by Orbit.
 #[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum Operation {
 	Remove,

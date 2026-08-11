@@ -72,7 +72,7 @@ pub async fn download(config: &Config) -> Result<()> {
 /// check if we're allowed to fetch them and error otherwise.
 ///
 /// Each String in Vec<String> is a pkg_name or url
-/// ["apt", "nala", "fastfetch"]
+/// ["apt", "orbit", "fastfetch"]
 pub fn untrusted_error(config: &Config, untrusted: Vec<String>) -> Result<()> {
 	if untrusted.is_empty() {
 		return Ok(());
@@ -113,7 +113,7 @@ pub struct Downloader {
 	pub(crate) archive_dir: PathBuf,
 	pub(crate) partial_dir: PathBuf,
 	/// Used to count how many connections are open to a domain.
-	/// Nala only allows 3 at a time per domain.
+	/// Orbit only allows 3 at a time per domain.
 	domains: DomainMap,
 	set: JoinSet<Result<Uri>>,
 	pub(crate) tx: mpsc::UnboundedSender<Message>,

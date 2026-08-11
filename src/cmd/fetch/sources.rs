@@ -87,8 +87,8 @@ pub(super) fn parse_sources(config: &Config) -> Result<HashSet<String>> {
 
 		let filename = path.to_string_lossy();
 
-		// Don't consider nala sources as it'll be overwritten
-		if filename.ends_with("nala.sources") {
+		// Don't consider orbit sources as it'll be overwritten
+		if filename.ends_with("orbit.sources") {
 			continue;
 		}
 

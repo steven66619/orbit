@@ -19,8 +19,8 @@ pub enum UiMode {
 
 #[derive(Debug, Default, Serialize, Deserialize)]
 pub struct ConfigFile {
-	#[serde(rename = "Nala", default, alias = "nala")]
-	pub nala: NalaConfig,
+	#[serde(rename = "Orbit", default, alias = "orbit")]
+	pub orbit: OrbitConfig,
 
 	#[serde(rename = "Ui", default, alias = "ui")]
 	pub ui: UiConfig,
@@ -30,7 +30,7 @@ pub struct ConfigFile {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct NalaConfig {
+pub struct OrbitConfig {
 	#[serde(default = "default_true")]
 	pub auto_remove: bool,
 
@@ -47,7 +47,7 @@ pub struct NalaConfig {
 	pub assume_yes: bool,
 }
 
-impl Default for NalaConfig {
+impl Default for OrbitConfig {
 	fn default() -> Self {
 		Self {
 			auto_remove: true,
@@ -98,11 +98,11 @@ impl ConfigFile {
 
 	pub fn bool(&self, key: &str) -> Option<bool> {
 		match key {
-			keys::ASSUME_YES => Some(self.nala.assume_yes),
-			keys::AUTO_REMOVE => Some(self.nala.auto_remove),
-			keys::AUTO_UPDATE => Some(self.nala.auto_update),
-			keys::SIMPLE => Some(self.nala.simple),
-			keys::UPDATE_SHOW_PACKAGES => Some(self.nala.update_show_packages),
+			keys::ASSUME_YES => Some(self.orbit.assume_yes),
+			keys::AUTO_REMOVE => Some(self.orbit.auto_remove),
+			keys::AUTO_UPDATE => Some(self.orbit.auto_update),
+			keys::SIMPLE => Some(self.orbit.simple),
+			keys::UPDATE_SHOW_PACKAGES => Some(self.orbit.update_show_packages),
 			_ => None,
 		}
 	}
@@ -123,13 +123,13 @@ mod tests {
 
 	#[test]
 	fn parses_target_hcl_shape() {
-		let conf = include_str!("../../nala.conf");
+		let conf = include_str!("../../orbit.conf");
 		let file = ConfigFile::parse(conf).unwrap();
-		assert!(file.nala.auto_remove);
-		assert!(file.nala.auto_update);
-		assert!(!file.nala.update_show_packages);
-		assert!(!file.nala.simple);
-		assert!(!file.nala.assume_yes);
+		assert!(file.orbit.auto_remove);
+		assert!(file.orbit.auto_update);
+		assert!(!file.orbit.update_show_packages);
+		assert!(!file.orbit.simple);
+		assert!(!file.orbit.assume_yes);
 		assert_eq!(file.ui.mode, UiMode::Auto);
 		assert_eq!(file.ui.unit, NumSys::Binary);
 		assert_eq!(file.color.mode, Switch::Auto);
@@ -142,7 +142,7 @@ mod tests {
 	fn missing_sections_use_defaults() {
 		let file = ConfigFile::parse("Ui = { mode = \"Plain\" }").unwrap();
 		assert_eq!(file.ui.mode, UiMode::Plain);
-		assert!(file.nala.auto_remove);
+		assert!(file.orbit.auto_remove);
 		assert_eq!(file.color.mode, Switch::Auto);
 	}
 }

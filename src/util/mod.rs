@@ -9,7 +9,7 @@ mod prompt;
 mod version;
 
 #[macro_export]
-/// Print Debug information using NalaProgress.
+/// Print Debug information using OrbitProgress.
 macro_rules! dprog {
 	($config:expr, $progress:expr, $context:expr, $(,)? $($arg:tt)*) => {
 		if $config.debug() {

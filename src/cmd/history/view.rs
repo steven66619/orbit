@@ -6,7 +6,7 @@ use chrono::{DateTime, Local, Utc};
 use super::model::HistoryEntry;
 use crate::cmd::Operation;
 use crate::config::Config;
-use crate::libnala::PackageTransition;
+use crate::liborbit::PackageTransition;
 use crate::tui::summary::SummaryRow;
 use crate::{t, table};
 

@@ -4,7 +4,7 @@ use rust_apt::{new_cache, Cache};
 
 use super::model::{HistoryEntry, HistoryStatus};
 use crate::config::Config;
-use crate::libnala::PackageTransition;
+use crate::liborbit::PackageTransition;
 use crate::{debug, t, util};
 
 /// Solver-facing package action derived from a stored history transition.

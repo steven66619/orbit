@@ -44,7 +44,7 @@ fn current_package_state(pkg: &Package<'_>) -> Option<PackageState> {
 
 // Package is not really mutable in the way clippy thinks.
 #[allow(clippy::mutable_key_type)]
-pub trait NalaCache {
+pub trait OrbitCache {
 	fn sort_changes<'a>(&'a self, auto: HashSet<Package<'a>>) -> Result<SortedChanges<'a>>;
 	fn auto_remove(
 		&self,
@@ -128,7 +128,7 @@ impl<'a> PackageExt<'a> for Package<'a> {
 	fn config_state(&self) -> bool { self.current_state() == PkgCurrentState::ConfigFiles }
 }
 
-impl NalaCache for Cache {
+impl OrbitCache for Cache {
 	/// Run the autoremover and then get the changes from the cache.
 	fn sort_changes<'a>(&'a self, auto: HashSet<Package<'a>>) -> Result<SortedChanges<'a>> {
 		let mut pkg_set: HashMap<Operation, Vec<PackageTransition>> = HashMap::new();

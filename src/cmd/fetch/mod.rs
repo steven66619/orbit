@@ -90,5 +90,5 @@ pub async fn fetch(config: &Config) -> Result<()> {
 		bail!("{}", t!("fetch-none-selected"))
 	}
 
-	output::write_nala_sources(config, &chosen, component, &release, &keyring).await
+	output::write_orbit_sources(config, &chosen, component, &release, &keyring).await
 }

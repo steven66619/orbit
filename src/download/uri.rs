@@ -347,7 +347,7 @@ mod tests {
 
 	#[test]
 	fn mirror_sources_are_normalized_and_expanded() {
-		let filename = "pool/nala.deb";
+		let filename = "pool/orbit.deb";
 
 		for (source, expected) in [
 			("mirror://host/list", "http://host/list"),
@@ -369,8 +369,8 @@ mod tests {
 		assert_eq!(
 			uris,
 			VecDeque::from([
-				"https://one/pool/nala.deb".to_string(),
-				"http://two/pool/nala.deb".to_string(),
+				"https://one/pool/orbit.deb".to_string(),
+				"http://two/pool/orbit.deb".to_string(),
 			])
 		);
 	}

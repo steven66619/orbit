@@ -48,47 +48,47 @@ async fn check_non_free(
 	Ok(component)
 }
 
-pub(super) async fn write_nala_sources(
+pub(super) async fn write_orbit_sources(
 	config: &Config,
 	chosen: &[String],
 	component: String,
 	release: &str,
 	keyring: &str,
 ) -> Result<()> {
-	debug!("Building Nala sources file");
-	let mut nala_sources = "# Sources file built for nala\n\n".to_string();
+	debug!("Building Orbit sources file");
+	let mut orbit_sources = "# Sources file built for orbit\n\n".to_string();
 	// Types: deb deb-src
 	// URIs: https://deb.volian.org/volian/
 	// Suites: scar
 	// Components: main
 	// Signed-By: /usr/share/keyrings/volian-archive-scar-unstable.gpg
-	nala_sources += if config.get_bool("sources", false) {
+	orbit_sources += if config.get_bool("sources", false) {
 		"Types: deb deb-src\n"
 	} else {
 		"Types: deb\n"
 	};
 
-	nala_sources += "URIs: ";
+	orbit_sources += "URIs: ";
 	for (i, mirror) in chosen.iter().enumerate() {
 		if config.auto().is_some_and(|auto| i + 1 > auto as usize) {
 			break;
 		}
 		if i > 0 {
-			nala_sources += "      ";
+			orbit_sources += "      ";
 		}
-		nala_sources += &format!("{mirror}\n");
+		orbit_sources += &format!("{mirror}\n");
 	}
-	nala_sources += &format!("Suites: {release}\n");
-	nala_sources += &format!(
+	orbit_sources += &format!("Suites: {release}\n");
+	orbit_sources += &format!(
 		"Components: {}\n",
 		check_non_free(config, chosen, component, release).await?
 	);
-	nala_sources += &format!("Signed-By: {keyring}\n");
+	orbit_sources += &format!("Signed-By: {keyring}\n");
 
-	debug!("Writing the following to file:\n\n{nala_sources}");
+	debug!("Writing the following to file:\n\n{orbit_sources}");
 
-	let file = config.get_file(&Paths::NalaSources);
-	fs::write(&file, nala_sources)?;
+	let file = config.get_file(&Paths::OrbitSources);
+	fs::write(&file, orbit_sources)?;
 	println!("{}", t!("fetch-sources-written", "file" => file));
 	Ok(())
 }

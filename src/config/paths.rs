@@ -1,5 +1,5 @@
-const HISTORY_DEFAULT: &str = "/var/lib/nala/history";
-const NALA_SOURCES_PATH: &str = "/etc/apt/sources.list.d/nala.sources";
+const HISTORY_DEFAULT: &str = "/var/lib/orbit/history";
+const NALA_SOURCES_PATH: &str = "/etc/apt/sources.list.d/orbit.sources";
 const REBOOT_REQUIRED: &str = "/run/reboot-required";
 const REBOOT_PKGS: &str = "/run/reboot-required.pkgs";
 
@@ -26,9 +26,9 @@ pub enum Paths {
 	/// The Sources parts directory
 	/// Default dir `/etc/apt/sources.list.d/`
 	SourceParts,
-	/// Nala Sources file is generated from the `fetch` command.
-	/// Default file `/etc/apt/sources.list.d/nala-sources.list`
-	NalaSources,
+	/// Orbit Sources file is generated from the `fetch` command.
+	/// Default file `/etc/apt/sources.list.d/orbit-sources.list`
+	OrbitSources,
 	/// File indicating a reboot is needed
 	RebootRequired,
 	/// File listing packages requiring reboot
@@ -56,7 +56,7 @@ impl Paths {
 				key: "Dir::Etc::sourceparts",
 				default: "/etc/apt/sources.list.d/",
 			},
-			Paths::NalaSources => PathSpec::Fixed(NALA_SOURCES_PATH),
+			Paths::OrbitSources => PathSpec::Fixed(NALA_SOURCES_PATH),
 			Paths::RebootRequired => PathSpec::Fixed(REBOOT_REQUIRED),
 			Paths::RebootRequiredPkgs => PathSpec::Fixed(REBOOT_PKGS),
 			Paths::History => PathSpec::Fixed(HISTORY_DEFAULT),

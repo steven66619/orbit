@@ -19,7 +19,7 @@ mod fs;
 mod glob;
 mod hashsum;
 mod i18n;
-mod libnala;
+mod liborbit;
 mod progress;
 mod summary;
 mod table;
@@ -27,7 +27,7 @@ mod terminal;
 mod tui;
 mod util;
 
-use crate::cli::NalaParser;
+use crate::cli::OrbitParser;
 use crate::cmd::{
 	clean, fetch, fix_broken, history, list_packages, mark_cli_pkgs, moo, policy, show, update,
 	upgrade,
@@ -36,7 +36,7 @@ use crate::config::{Config, keys};
 use crate::download::download;
 
 fn main() -> ExitCode {
-	clap_complete::CompleteEnv::with_factory(NalaParser::command).complete();
+	clap_complete::CompleteEnv::with_factory(OrbitParser::command).complete();
 
 	let (args, derived, mut config) = match config::bootstrap() {
 		Ok(conf) => conf,
@@ -54,7 +54,7 @@ fn main() -> ExitCode {
 	// This can simplify some parts of the code like list/search
 
 	// For all other errors use the color defined in the config.
-	if let Err(err) = main_nala(args, derived, &mut config) {
+	if let Err(err) = main_orbit(args, derived, &mut config) {
 		// Guard clause in cause it is not AptErrors
 		// In this case just print it nicely
 		if let Some(apt_errors) = err.downcast_ref::<AptErrors>() {
@@ -74,7 +74,7 @@ fn main() -> ExitCode {
 }
 
 #[tokio::main]
-async fn main_nala(args: ArgMatches, derived: NalaParser, config: &mut Config) -> Result<()> {
+async fn main_orbit(args: ArgMatches, derived: OrbitParser, config: &mut Config) -> Result<()> {
 	if derived.license {
 		println!("{}", t!("not-implemented"));
 		return Ok(());
@@ -138,7 +138,7 @@ async fn main_nala(args: ArgMatches, derived: NalaParser, config: &mut Config) -
 			Commands::Moo(args) => moo(args)?,
 		}
 	} else {
-		NalaParser::command().print_help()?;
+		OrbitParser::command().print_help()?;
 		bail!("{}", t!("subcommand-missing"))
 	}
 	Ok(())

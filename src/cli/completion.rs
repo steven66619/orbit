@@ -6,7 +6,7 @@ use std::path::PathBuf;
 use clap_complete::engine::CompletionCandidate;
 use rust_apt::{Cache, PackageSort, PkgCurrentState, new_cache};
 
-const HISTORY_DEFAULT: &str = "/var/lib/nala/history";
+const HISTORY_DEFAULT: &str = "/var/lib/orbit/history";
 
 fn candidates_from_names(names: impl IntoIterator<Item = String>) -> Vec<CompletionCandidate> {
 	names.into_iter().map(CompletionCandidate::new).collect()

@@ -290,7 +290,7 @@ mod test {
 	use super::Config;
 	use crate::cli::commands::{Install, Upgrade as UpgradeCommand};
 	use crate::cli::flags::{AutoRemoveFlags, FixBrokenFlags, InstallFlags, TransactionFlags};
-	use crate::cli::{Commands, NalaParser};
+	use crate::cli::{Commands, OrbitParser};
 	use crate::config::file::{ConfigFile, UiMode};
 	use crate::config::{OptType, Paths, Switch, keys};
 	use crate::util::NumSys;
@@ -304,10 +304,10 @@ mod test {
 		let _guard = test_lock();
 		let file = ConfigFile::default();
 
-		assert!(file.nala.auto_remove);
-		assert!(file.nala.auto_update);
-		assert!(!file.nala.update_show_packages);
-		assert!(!file.nala.simple);
+		assert!(file.orbit.auto_remove);
+		assert!(file.orbit.auto_update);
+		assert!(!file.orbit.update_show_packages);
+		assert!(!file.orbit.simple);
 		assert_eq!(file.ui.mode, UiMode::Auto);
 		assert_eq!(file.ui.unit, NumSys::Binary);
 		assert_eq!(file.color.mode, Switch::Auto);
@@ -318,14 +318,14 @@ mod test {
 		let _guard = test_lock();
 		let config = Config::default();
 
-		let nala_sources = config.get_path(&Paths::NalaSources);
+		let orbit_sources = config.get_path(&Paths::OrbitSources);
 		assert_eq!(
-			nala_sources.to_string_lossy(),
-			"/etc/apt/sources.list.d/nala.sources"
+			orbit_sources.to_string_lossy(),
+			"/etc/apt/sources.list.d/orbit.sources"
 		);
 
 		let history = config.get_path(&Paths::History);
-		assert_eq!(history.to_string_lossy(), "/var/lib/nala/history");
+		assert_eq!(history.to_string_lossy(), "/var/lib/orbit/history");
 	}
 
 	#[test]
@@ -333,15 +333,15 @@ mod test {
 		let _guard = test_lock();
 		let mut config = Config::default();
 
-		config.set_history_dir("/tmp/nala-history-test");
+		config.set_history_dir("/tmp/orbit-history-test");
 
 		assert_eq!(
 			config.get_path(&Paths::History).to_string_lossy(),
-			"/tmp/nala-history-test"
+			"/tmp/orbit-history-test"
 		);
 		assert_eq!(
-			config.get_path(&Paths::NalaSources).to_string_lossy(),
-			"/etc/apt/sources.list.d/nala.sources"
+			config.get_path(&Paths::OrbitSources).to_string_lossy(),
+			"/etc/apt/sources.list.d/orbit.sources"
 		);
 	}
 
@@ -371,8 +371,8 @@ mod test {
 	#[test]
 	fn assume_prompt_flags_load_from_cli() {
 		let _guard = test_lock();
-		let args = NalaParser::command()
-			.try_get_matches_from(["nala", "install", "--assume-no", "demo"])
+		let args = OrbitParser::command()
+			.try_get_matches_from(["orbit", "install", "--assume-no", "demo"])
 			.unwrap();
 		let (_, cmd) = args.subcommand().unwrap();
 		let mut config = Config::default();
@@ -386,7 +386,7 @@ mod test {
 	fn assume_yes_uses_config_default() {
 		let _guard = test_lock();
 		let mut file = ConfigFile::default();
-		file.nala.assume_yes = true;
+		file.orbit.assume_yes = true;
 		let config = Config::from_file(file);
 
 		assert!(config.get_bool(keys::ASSUME_YES, false));
@@ -395,9 +395,9 @@ mod test {
 	#[test]
 	fn apt_behavior_flags_set_apt_config() {
 		let _guard = test_lock();
-		let args = NalaParser::command()
+		let args = OrbitParser::command()
 			.try_get_matches_from([
-				"nala",
+				"orbit",
 				"install",
 				"--no-install-recommends",
 				"--install-suggests",
@@ -428,9 +428,9 @@ mod test {
 	#[test]
 	fn transaction_safety_flags_load_from_cli() {
 		let _guard = test_lock();
-		let args = NalaParser::command()
+		let args = OrbitParser::command()
 			.try_get_matches_from([
-				"nala",
+				"orbit",
 				"remove",
 				"--remove-essential",
 				"--no-autoremove",
@@ -449,8 +449,8 @@ mod test {
 	#[test]
 	fn update_flags_load_from_cli() {
 		let _guard = test_lock();
-		let update_args = NalaParser::command()
-			.try_get_matches_from(["nala", "install", "--update", "demo"])
+		let update_args = OrbitParser::command()
+			.try_get_matches_from(["orbit", "install", "--update", "demo"])
 			.unwrap();
 		let (_, cmd) = update_args.subcommand().unwrap();
 		let mut config = Config::default();
@@ -459,8 +459,8 @@ mod test {
 
 		assert!(config.get_bool(keys::UPDATE, false));
 
-		let no_update_args = NalaParser::command()
-			.try_get_matches_from(["nala", "upgrade", "--no-update"])
+		let no_update_args = OrbitParser::command()
+			.try_get_matches_from(["orbit", "upgrade", "--no-update"])
 			.unwrap();
 		let (_, cmd) = no_update_args.subcommand().unwrap();
 		let mut config = Config::default();
@@ -473,9 +473,9 @@ mod test {
 	#[test]
 	fn upgrade_exclude_flags_load_from_cli() {
 		let _guard = test_lock();
-		let args = NalaParser::command()
+		let args = OrbitParser::command()
 			.try_get_matches_from([
-				"nala",
+				"orbit",
 				"upgrade",
 				"--exclude",
 				"foo",
@@ -497,8 +497,8 @@ mod test {
 	#[test]
 	fn list_filter_flags_load_from_cli() {
 		let _guard = test_lock();
-		let args = NalaParser::command()
-			.try_get_matches_from(["nala", "list", "--all-arches", "--virtual"])
+		let args = OrbitParser::command()
+			.try_get_matches_from(["orbit", "list", "--all-arches", "--virtual"])
 			.unwrap();
 		let (_, cmd) = args.subcommand().unwrap();
 		let mut config = Config::default();
@@ -512,8 +512,8 @@ mod test {
 	#[test]
 	fn simple_summary_flags_load_from_cli() {
 		let _guard = test_lock();
-		let simple_args = NalaParser::command()
-			.try_get_matches_from(["nala", "install", "--simple", "demo"])
+		let simple_args = OrbitParser::command()
+			.try_get_matches_from(["orbit", "install", "--simple", "demo"])
 			.unwrap();
 		let (_, cmd) = simple_args.subcommand().unwrap();
 		let mut config = Config::default();
@@ -527,7 +527,7 @@ mod test {
 	fn simple_summary_uses_config_default() {
 		let _guard = test_lock();
 		let mut file = ConfigFile::default();
-		file.nala.simple = true;
+		file.orbit.simple = true;
 		let config = Config::from_file(file);
 
 		assert!(config.simple_summary());
@@ -536,8 +536,8 @@ mod test {
 	#[test]
 	fn load_command_sets_update_flag_and_command_name() {
 		let _guard = test_lock();
-		let args = NalaParser::command()
-			.try_get_matches_from(["nala", "install", "--update", "demo"])
+		let args = OrbitParser::command()
+			.try_get_matches_from(["orbit", "install", "--update", "demo"])
 			.unwrap();
 		let (name, cmd) = args.subcommand().unwrap();
 		let mut config = Config::default();

@@ -9,7 +9,7 @@ use rust_apt::{Cache, Package, PackageSort, Version};
 
 use crate::cmd::Operation;
 use crate::config::{Config, Theme, color, keys};
-use crate::libnala::PackageExt;
+use crate::liborbit::PackageExt;
 use crate::{debug, error, info, t};
 
 #[derive(Debug, Default)]

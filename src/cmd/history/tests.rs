@@ -3,7 +3,7 @@ use super::replay::ReplayAction;
 use super::*;
 use crate::cli::HistorySelector;
 use crate::config::Config;
-use crate::libnala::{Operation, PackageState, PackageTransition};
+use crate::liborbit::{Operation, PackageState, PackageTransition};
 use std::fs;
 use std::path::PathBuf;
 use std::sync::{LazyLock, Mutex, MutexGuard};
@@ -368,7 +368,7 @@ fn temp_history_dir() -> PathBuf {
 		.duration_since(UNIX_EPOCH)
 		.unwrap()
 		.as_nanos();
-	std::env::temp_dir().join(format!("nala-history-test-{unique}"))
+	std::env::temp_dir().join(format!("orbit-history-test-{unique}"))
 }
 
 fn sample_entry(id: u32, command: &str) -> HistoryEntry {

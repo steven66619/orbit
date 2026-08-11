@@ -21,7 +21,7 @@ pub struct TransactionFlags {
 	#[clap(long, action, conflicts_with = "update")]
 	pub no_update: bool,
 
-	/// Allow Nala to install packages that can't be hashsum verified
+	/// Allow Orbit to install packages that can't be hashsum verified
 	#[clap(long, action)]
 	pub allow_unauthenticated: bool,
 

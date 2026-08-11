@@ -31,9 +31,9 @@ pub fn clean(config: &Config) -> Result<()> {
 	}
 
 	if config.get_bool("fetch", false) {
-		let nala_sources = Paths::NalaSources.path();
-		return remove_file(nala_sources)
-			.with_context(|| t!("file-remove", "path" => nala_sources));
+		let orbit_sources = Paths::OrbitSources.path();
+		return remove_file(orbit_sources)
+			.with_context(|| t!("file-remove", "path" => orbit_sources));
 	}
 
 	let mut archive = config.get_path(&Paths::Archive);

@@ -88,14 +88,14 @@ impl OptType {
 
 /// Parse CLI, resolve config path, and load configuration with fallback to
 /// defaults.
-pub fn bootstrap() -> Result<(ArgMatches, crate::cli::NalaParser, Config)> {
-	let args = crate::cli::NalaParser::command().get_matches();
-	let derived = crate::cli::NalaParser::from_arg_matches(&args)?;
+pub fn bootstrap() -> Result<(ArgMatches, crate::cli::OrbitParser, Config)> {
+	let args = crate::cli::OrbitParser::command().get_matches();
+	let derived = crate::cli::OrbitParser::from_arg_matches(&args)?;
 
 	let config_path = derived
 		.config
 		.as_deref()
-		.unwrap_or(Path::new("/etc/nala/nala.conf"));
+		.unwrap_or(Path::new("/etc/orbit/orbit.conf"));
 
 	let config = match Config::new(config_path) {
 		Ok(config) => config,

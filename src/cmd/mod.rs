@@ -26,7 +26,7 @@ pub use upgrade::{apt_hook_with_pkgs, run_scripts};
 
 use crate::cli::commands::Moo;
 use crate::config::{Config, color};
-pub use crate::libnala::Operation;
+pub use crate::liborbit::Operation;
 use crate::t;
 use crate::util::URL;
 

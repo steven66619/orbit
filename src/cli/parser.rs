@@ -5,11 +5,11 @@ use clap::{ColorChoice, Parser};
 use super::commands::Commands;
 
 #[derive(Parser, Debug)]
-#[clap(name = "nala")]
+#[clap(name = "orbit")]
 #[clap(author = "Blake Lee <blake@volian.org>")]
 #[clap(version)]
 #[clap(about = "Commandline front-end for libapt-pkg", long_about = None)]
-pub struct NalaParser {
+pub struct OrbitParser {
 	/// Print license information
 	#[clap(global = true, short, long, action)]
 	pub license: bool,
@@ -56,7 +56,7 @@ mod tests {
 	#[test]
 	fn install_reinstall_flag_parses() {
 		let parsed =
-			NalaParser::try_parse_from(["nala", "install", "--reinstall", "demo"]).unwrap();
+			OrbitParser::try_parse_from(["orbit", "install", "--reinstall", "demo"]).unwrap();
 
 		let Some(Commands::Install(args)) = parsed.command else {
 			panic!("expected install command");
@@ -68,14 +68,14 @@ mod tests {
 
 	#[test]
 	fn assume_prompt_flags_parse() {
-		let parsed = NalaParser::try_parse_from(["nala", "install", "-y", "demo"]).unwrap();
+		let parsed = OrbitParser::try_parse_from(["orbit", "install", "-y", "demo"]).unwrap();
 		let Some(Commands::Install(args)) = parsed.command else {
 			panic!("expected install command");
 		};
 		assert!(args.transaction.assume_yes);
 		assert!(!args.transaction.assume_no);
 
-		let parsed = NalaParser::try_parse_from(["nala", "install", "-n", "demo"]).unwrap();
+		let parsed = OrbitParser::try_parse_from(["orbit", "install", "-n", "demo"]).unwrap();
 		let Some(Commands::Install(args)) = parsed.command else {
 			panic!("expected install command");
 		};
@@ -83,27 +83,27 @@ mod tests {
 		assert!(!args.transaction.assume_yes);
 
 		assert!(
-			NalaParser::try_parse_from(["nala", "install", "--assume-yes", "--assume-no", "demo",])
+			OrbitParser::try_parse_from(["orbit", "install", "--assume-yes", "--assume-no", "demo",])
 				.is_err()
 		);
 	}
 
 	#[test]
 	fn download_only_owns_short_d() {
-		let parsed = NalaParser::try_parse_from(["nala", "install", "-d", "demo"]).unwrap();
+		let parsed = OrbitParser::try_parse_from(["orbit", "install", "-d", "demo"]).unwrap();
 		let Some(Commands::Install(args)) = parsed.command else {
 			panic!("expected install command");
 		};
 
 		assert!(args.transaction.download_only);
-		assert!(NalaParser::try_parse_from(["nala", "-d", "install", "demo"]).is_err());
-		assert!(NalaParser::try_parse_from(["nala", "--debug", "install", "demo"]).is_ok());
+		assert!(OrbitParser::try_parse_from(["orbit", "-d", "install", "demo"]).is_err());
+		assert!(OrbitParser::try_parse_from(["orbit", "--debug", "install", "demo"]).is_ok());
 	}
 
 	#[test]
 	fn apt_behavior_flags_parse() {
-		let parsed = NalaParser::try_parse_from([
-			"nala",
+		let parsed = OrbitParser::try_parse_from([
+			"orbit",
 			"install",
 			"--install-recommends",
 			"--no-install-suggests",
@@ -123,8 +123,8 @@ mod tests {
 		assert!(args.fix_broken.no_fix_broken);
 
 		assert!(
-			NalaParser::try_parse_from([
-				"nala",
+			OrbitParser::try_parse_from([
+				"orbit",
 				"install",
 				"--install-suggests",
 				"--no-install-suggests",
@@ -136,8 +136,8 @@ mod tests {
 
 	#[test]
 	fn transaction_safety_flags_parse() {
-		let parsed = NalaParser::try_parse_from([
-			"nala",
+		let parsed = OrbitParser::try_parse_from([
+			"orbit",
 			"remove",
 			"--remove-essential",
 			"--no-autoremove",
@@ -152,15 +152,15 @@ mod tests {
 		assert!(args.auto_remove.no_auto_remove);
 
 		let parsed =
-			NalaParser::try_parse_from(["nala", "install", "--autoremove", "demo"]).unwrap();
+			OrbitParser::try_parse_from(["orbit", "install", "--autoremove", "demo"]).unwrap();
 		let Some(Commands::Install(args)) = parsed.command else {
 			panic!("expected install command");
 		};
 		assert!(args.auto_remove.auto_remove);
 
 		assert!(
-			NalaParser::try_parse_from([
-				"nala",
+			OrbitParser::try_parse_from([
+				"orbit",
 				"install",
 				"--auto-remove",
 				"--no-autoremove",
@@ -172,14 +172,14 @@ mod tests {
 
 	#[test]
 	fn update_flags_parse() {
-		let parsed = NalaParser::try_parse_from(["nala", "install", "--update", "demo"]).unwrap();
+		let parsed = OrbitParser::try_parse_from(["orbit", "install", "--update", "demo"]).unwrap();
 		let Some(Commands::Install(args)) = parsed.command else {
 			panic!("expected install command");
 		};
 		assert!(args.transaction.update);
 		assert!(!args.transaction.no_update);
 
-		let parsed = NalaParser::try_parse_from(["nala", "upgrade", "--no-update"]).unwrap();
+		let parsed = OrbitParser::try_parse_from(["orbit", "upgrade", "--no-update"]).unwrap();
 		let Some(Commands::Upgrade(args)) = parsed.command else {
 			panic!("expected upgrade command");
 		};
@@ -187,14 +187,14 @@ mod tests {
 		assert!(!args.transaction.update);
 
 		assert!(
-			NalaParser::try_parse_from(["nala", "upgrade", "--update", "--no-update",]).is_err()
+			OrbitParser::try_parse_from(["orbit", "upgrade", "--update", "--no-update",]).is_err()
 		);
 	}
 
 	#[test]
 	fn upgrade_exclude_flags_parse() {
-		let parsed = NalaParser::try_parse_from([
-			"nala",
+		let parsed = OrbitParser::try_parse_from([
+			"orbit",
 			"upgrade",
 			"--exclude",
 			"foo",
@@ -212,13 +212,13 @@ mod tests {
 
 	#[test]
 	fn all_arches_flags_parse() {
-		let parsed = NalaParser::try_parse_from(["nala", "list", "--all-arches"]).unwrap();
+		let parsed = OrbitParser::try_parse_from(["orbit", "list", "--all-arches"]).unwrap();
 		let Some(Commands::List(args)) = parsed.command else {
 			panic!("expected list command");
 		};
 		assert!(args.info.all_arches);
 
-		let parsed = NalaParser::try_parse_from(["nala", "search", "-A", "demo"]).unwrap();
+		let parsed = OrbitParser::try_parse_from(["orbit", "search", "-A", "demo"]).unwrap();
 		let Some(Commands::Search(args)) = parsed.command else {
 			panic!("expected search command");
 		};
@@ -227,13 +227,13 @@ mod tests {
 
 	#[test]
 	fn virtual_flags_parse() {
-		let parsed = NalaParser::try_parse_from(["nala", "list", "--virtual"]).unwrap();
+		let parsed = OrbitParser::try_parse_from(["orbit", "list", "--virtual"]).unwrap();
 		let Some(Commands::List(args)) = parsed.command else {
 			panic!("expected list command");
 		};
 		assert!(args.r#virtual);
 
-		let parsed = NalaParser::try_parse_from(["nala", "search", "-V", "demo"]).unwrap();
+		let parsed = OrbitParser::try_parse_from(["orbit", "search", "-V", "demo"]).unwrap();
 		let Some(Commands::Search(args)) = parsed.command else {
 			panic!("expected search command");
 		};
@@ -242,7 +242,7 @@ mod tests {
 
 	#[test]
 	fn simple_summary_flags_parse() {
-		let parsed = NalaParser::try_parse_from(["nala", "install", "--simple", "demo"]).unwrap();
+		let parsed = OrbitParser::try_parse_from(["orbit", "install", "--simple", "demo"]).unwrap();
 		let Some(Commands::Install(args)) = parsed.command else {
 			panic!("expected install command");
 		};

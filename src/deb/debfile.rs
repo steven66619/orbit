@@ -179,7 +179,7 @@ mod tests {
 			.duration_since(UNIX_EPOCH)
 			.unwrap()
 			.as_nanos();
-		let path = std::env::temp_dir().join(format!("nala-debfile-{}-{id}.deb", kind.label()));
+		let path = std::env::temp_dir().join(format!("orbit-debfile-{}-{id}.deb", kind.label()));
 		fs::write(&path, deb).await.unwrap();
 		path
 	}

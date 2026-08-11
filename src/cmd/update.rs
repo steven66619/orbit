@@ -18,7 +18,7 @@ pub enum Message {
 
 /// The function just runs apt's update and is designed to go into
 /// it's own little thread.
-pub async fn update_thread(acquire: NalaAcquireProgress) -> Result<()> {
+pub async fn update_thread(acquire: OrbitAcquireProgress) -> Result<()> {
 	let cache = new_cache!()?;
 	cache.update(&mut AcquireProgress::new(acquire))?;
 	Ok(())
@@ -28,7 +28,7 @@ pub async fn update(config: &Config) -> Result<()> {
 	// Setup channel to talk between threads
 	let (tx, mut rx) = mpsc::unbounded_channel();
 	// Setup the acquire struct and send it to the update thread
-	let acquire = NalaAcquireProgress::new(tx);
+	let acquire = OrbitAcquireProgress::new(tx);
 	let task = tokio::task::spawn(update_thread(acquire));
 
 	let mut progress = Progress::new(config, false)?;
@@ -90,7 +90,7 @@ pub async fn update(config: &Config) -> Result<()> {
 			t!(
 				"update-upgradable",
 				"count" => upgradable.len(),
-				"command" => color::primary!("nala list --upgradable")
+				"command" => color::primary!("orbit list --upgradable")
 			)
 		);
 	}
@@ -112,13 +112,13 @@ pub async fn update(config: &Config) -> Result<()> {
 /// AptAcquireProgress is the default struct for the update method on the cache.
 ///
 /// This struct mimics the output of `apt update`.
-pub struct NalaAcquireProgress {
+pub struct OrbitAcquireProgress {
 	apt_config: rust_apt::config::Config,
 	pulse_interval: usize,
 	tx: mpsc::UnboundedSender<Message>,
 }
 
-impl NalaAcquireProgress {
+impl OrbitAcquireProgress {
 	/// Returns a new default progress instance.
 	pub fn new(tx: mpsc::UnboundedSender<Message>) -> Self {
 		Self {
@@ -129,7 +129,7 @@ impl NalaAcquireProgress {
 	}
 }
 
-impl DynAcquireProgress for NalaAcquireProgress {
+impl DynAcquireProgress for OrbitAcquireProgress {
 	/// Used to send the pulse interval to the apt progress class.
 	///
 	/// Pulse Interval is in microseconds.

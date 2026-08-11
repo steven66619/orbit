@@ -1562,36 +1562,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "nala"
-version = "0.17.1"
-dependencies = [
- "anyhow",
- "ar",
- "async-compression",
- "chrono",
- "clap",
- "clap_complete",
- "clap_mangen",
- "comfy-table",
- "crossterm",
- "fluent",
- "globset",
- "hcl-rs",
- "indexmap",
- "mio",
- "nix",
- "ratatui",
- "regex",
- "reqwest",
- "rust-apt",
- "serde",
- "serde_json",
- "sha2",
- "tar",
- "tokio",
-]
-
-[[package]]
 name = "nix"
 version = "0.31.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1654,6 +1624,36 @@ name = "openssl-probe"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7c87def4c32ab89d880effc9e097653c8da5d6ef28e6b539d313baaacfbafcbe"
+
+[[package]]
+name = "orbit"
+version = "0.17.1"
+dependencies = [
+ "anyhow",
+ "ar",
+ "async-compression",
+ "chrono",
+ "clap",
+ "clap_complete",
+ "clap_mangen",
+ "comfy-table",
+ "crossterm",
+ "fluent",
+ "globset",
+ "hcl-rs",
+ "indexmap",
+ "mio",
+ "nix",
+ "ratatui",
+ "regex",
+ "reqwest",
+ "rust-apt",
+ "serde",
+ "serde_json",
+ "sha2",
+ "tar",
+ "tokio",
+]
 
 [[package]]
 name = "palette"

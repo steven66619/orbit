@@ -12,12 +12,12 @@ use rust_apt::raw::quote_string;
 use rust_apt::{Marked, Package, Version};
 
 use crate::config::{Config, Paths};
-use crate::libnala::needs_configure;
+use crate::liborbit::needs_configure;
 use crate::util::get_pkg_name;
 use crate::debug;
 use crate::t;
 
-/// The subset of APT pre-install hook actions that Nala currently models.
+/// The subset of APT pre-install hook actions that Orbit currently models.
 enum HookActionKind {
 	/// A package will be unpacked from the given `.deb` path.
 	Install { filename: String },

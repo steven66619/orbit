@@ -22,7 +22,7 @@ mod parser {
 	include!("src/cli/parser.rs");
 }
 
-use parser::NalaParser;
+use parser::OrbitParser;
 
 fn generate_manpages(cmd: clap::Command, out_dir: &std::path::Path) -> Result<(), std::io::Error> {
 	fn generate(cmd: clap::Command, out_dir: &std::path::Path) -> Result<(), std::io::Error> {
@@ -56,7 +56,7 @@ fn main() -> Result<(), std::io::Error> {
 	let out_dir =
 		std::path::PathBuf::from(std::env::var_os("OUT_DIR").ok_or(std::io::ErrorKind::NotFound)?);
 
-	let parser = NalaParser::command();
+	let parser = OrbitParser::command();
 
 	generate_files!("Manpage", out_dir, {
 		generate_manpages(parser, &out_dir)?;

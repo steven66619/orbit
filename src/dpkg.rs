@@ -94,7 +94,7 @@ impl Drop for SigwinchGuard {
 }
 
 pub fn run_install(cache: Cache, config: &Config) -> Result<()> {
-	// Do not run any apt scripts, Nala does this herself.
+	// Do not run any apt scripts, Orbit does this herself.
 	config.apt.clear("DPkg::Pre-Invoke");
 	config.apt.clear("DPkg::Post-Invoke");
 	config.apt.clear("DPkg::Pre-Install-Pkgs");

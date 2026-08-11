@@ -2,7 +2,7 @@ use std::collections::HashSet;
 
 use rust_apt::{Cache, Package, PackageSort, PkgSelectedState};
 
-use crate::libnala::{
+use crate::liborbit::{
 	package_key, HeldReason, PackageKey, PackageState, PackageTransition,
 };
 

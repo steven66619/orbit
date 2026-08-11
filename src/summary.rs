@@ -8,7 +8,7 @@ use rust_apt::{Cache, Package};
 use crate::cmd::{self, HistoryEntry, apt_hook_with_pkgs, run_scripts};
 use crate::config::{Config, Paths, Theme, color, keys};
 use crate::download::Downloader;
-use crate::libnala::{NalaCache, Operation, PackageKey, PackageTransition, package_key};
+use crate::liborbit::{OrbitCache, Operation, PackageKey, PackageTransition, package_key};
 use crate::terminal::{TerminalGuard, use_tui};
 use crate::tui::summary::SummaryRow;
 use crate::{dpkg, error, info, t, table, tui, util, warn};
@@ -351,7 +351,7 @@ fn check_reboot_required(config: &Config) {
 #[cfg(test)]
 mod tests {
 	use super::*;
-	use crate::libnala::PackageState;
+	use crate::liborbit::PackageState;
 
 	fn transition(name: &str, operation: Operation) -> PackageTransition {
 		PackageTransition::transition(

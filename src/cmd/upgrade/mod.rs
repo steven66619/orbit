@@ -9,7 +9,7 @@ use rust_apt::{new_cache, Cache};
 pub use hooks::{apt_hook_with_pkgs, run_scripts};
 
 use crate::config::{color, keys, Config};
-use crate::libnala::{package_key, PackageKey};
+use crate::liborbit::{package_key, PackageKey};
 use crate::util::sudo_check;
 use crate::{debug, glob, info};
 use crate::t;

@@ -19,7 +19,7 @@ use rust_apt::util::DiskSpace;
 
 use super::style as tui_style;
 use crate::config::{Config, Theme};
-use crate::libnala::{Operation, PackageTransition};
+use crate::liborbit::{Operation, PackageTransition};
 use crate::t;
 use crate::terminal::TerminalGuard;
 

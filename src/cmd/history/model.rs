@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::cli::HistorySelector;
 use crate::config::Config;
-use crate::libnala::PackageTransition;
+use crate::liborbit::PackageTransition;
 use crate::{t, util};
 
 /// Schema version for on-disk package transaction history entries.

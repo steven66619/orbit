@@ -14,7 +14,7 @@ use rust_apt::Cache;
 use tokio::sync::OnceCell as AsyncOnceCell;
 
 use crate::config::{Config, Theme, color};
-use crate::libnala::PackageTransition;
+use crate::liborbit::PackageTransition;
 use crate::terminal::TerminalGuard;
 use crate::tui::{style as tui_style, summary};
 use crate::{t, util};
