@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: nala
+Upstream-Name: orbit
 Upstream-Contact: Blake Lee <blake@volian.org>
-Source: https://gitlab.com/volian/nala
+Source: https://github.com/steven66619/orbit
 
 Files: *
 Copyright: 2021 - 2022 Blake Lee <blake@volian.org>
@@ -14,17 +14,17 @@ License: GPL-3
 License: GPL-3
  Copyright (C) 2021 - 2022 Blake Lee <blake@volian.org>
  .
- nala is free software: you can redistribute it and/or modify
+ orbit is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, version 3 of the License.
  .
- nala is distributed in the hope that it will be useful,
+ orbit is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
  .
  You should have received a copy of the GNU General Public License
- along with nala.  If not, see <https://www.gnu.org/licenses/>.
+ along with orbit.  If not, see <https://www.gnu.org/licenses/>.
  .
  On Debian systems, the full text of the GNU General Public
  License version 3 can be found in the file

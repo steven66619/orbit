@@ -1,5 +1,5 @@
-#compdef nala
+#compdef orbit
 
-if (( $+commands[nala] )); then
-  source <(COMPLETE=zsh nala)
+if (( $+commands[orbit] )); then
+  source <(COMPLETE=zsh orbit)
 fi

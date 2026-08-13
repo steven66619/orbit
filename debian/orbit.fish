@@ -1,3 +1,3 @@
-if command --query nala
-    COMPLETE=fish nala | source
+if command --query orbit
+    COMPLETE=fish orbit | source
 end

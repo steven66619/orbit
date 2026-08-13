@@ -1,3 +1,3 @@
-if command -v nala >/dev/null 2>&1; then
-    source <(COMPLETE=bash nala)
+if command -v orbit >/dev/null 2>&1; then
+    source <(COMPLETE=bash orbit)
 fi

@@ -1,4 +1,4 @@
-nala (0.17.1) unstable; urgency=medium
+orbit (0.17.1) unstable; urgency=medium
 
   [ Bug Fixes ]
   * Support architecture-qualified package installs.
@@ -7,7 +7,7 @@ nala (0.17.1) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Mon, 27 Jul 2026 02:14:41 +0000
 
-nala (0.17.0) unstable; urgency=medium
+orbit (0.17.0) unstable; urgency=medium
 
   [ Changes ]
   * Switch the development package from the Python implementation to Rust.
@@ -17,18 +17,18 @@ nala (0.17.0) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Wed, 20 May 2026 00:00:00 -0500
 
-nala (0.16.0) unstable; urgency=medium
+orbit (0.16.0) unstable; urgency=medium
 
   [ Bug Fixes ]
   * Fix local repositories not working
-  * Fix nala returning 0 when not continuing (closes: #1073575)
+  * Fix orbit returning 0 when not continuing (closes: #1073575)
 
   [ Changes ]
   * Modernize apt sources
 
  -- Blake Lee <blake@volian.org>  Mon, 21 Apr 2025 02:40:54 +0000
 
-nala (0.15.4) unstable; urgency=medium
+orbit (0.15.4) unstable; urgency=medium
 
   [ Bug Fixes ]
   * Fix crash caused by unexpected fields in mirror file
@@ -39,7 +39,7 @@ nala (0.15.4) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Sun, 01 Sep 2024 23:32:18 +0000
 
-nala (0.15.3) unstable; urgency=medium
+orbit (0.15.3) unstable; urgency=medium
 
   [ Bug Fixes ]
   * Fix clean potentially wiping /
@@ -49,16 +49,16 @@ nala (0.15.3) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Mon, 03 Jun 2024 05:27:38 +0000
 
-nala (0.15.2) unstable; urgency=medium
+orbit (0.15.2) unstable; urgency=medium
 
   [ Bug Fixes ]
   * Fix wrong formatting in pt_BR translation
   * Fix index error when diff same version
-  * Fix Nala writing history despite dpkg failing
+  * Fix Orbit writing history despite dpkg failing
 
  -- Blake Lee <blake@volian.org>  Fri, 10 May 2024 03:14:22 +0000
 
-nala (0.15.1) unstable; urgency=medium
+orbit (0.15.1) unstable; urgency=medium
 
   [ Changes ]
   * Update Swedish translations
@@ -68,7 +68,7 @@ nala (0.15.1) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Mon, 29 Jan 2024 10:13:54 -0600
 
-nala (0.15.0) unstable; urgency=medium
+orbit (0.15.0) unstable; urgency=medium
 
   [ Changes ]
   * Update translations
@@ -78,20 +78,20 @@ nala (0.15.0) unstable; urgency=medium
   [ Bug Fixes ]
   * Fix local install chooses wrong deps sometimes
   * Fix no dpkg title when using upgrade alias
-  * Fix nala sometimes installs wrong dependencies
-  * Fix nala not updating package lists with upgrade aliases
+  * Fix orbit sometimes installs wrong dependencies
+  * Fix orbit not updating package lists with upgrade aliases
   * Fix apt config containing duplicate hooks
   * Fix aliases `--help` not showing manpage
   * Fix downloads failing if `/var/cache/apt/archives` doesn't exist
   * Fix fetch asking on `--auto` to write file
   * Fix wrong key in some translations
   * Fix help without sub command not showing man page
-  * Fix nala waiting for input and not showing prompts
-  * Fix `nala history` hanging on permission error (closes: #1041826, #1041821)
+  * Fix orbit waiting for input and not showing prompts
+  * Fix `orbit history` hanging on permission error (closes: #1041826, #1041821)
 
  -- Blake Lee <blake@volian.org>  Tue, 23 Jan 2024 23:37:08 -0600
 
-nala (0.14.0) unstable; urgency=medium
+orbit (0.14.0) unstable; urgency=medium
 
   [ Changes ]
   * Add `dist-upgrade` and `full-upgrade` alias
@@ -104,7 +104,7 @@ nala (0.14.0) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Mon, 09 Oct 2023 21:05:26 -0500
 
-nala (0.13.0) unstable; urgency=medium
+orbit (0.13.0) unstable; urgency=medium
 
   [ Changes ]
   * Add Chinese translations
@@ -117,7 +117,7 @@ nala (0.13.0) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Sat, 27 May 2023 19:50:09 -0500
 
-nala (0.12.3) unstable; urgency=medium
+orbit (0.12.3) unstable; urgency=medium
 
   [ Bug Fixes ]
   * Fix show listing each version as installed
@@ -125,7 +125,7 @@ nala (0.12.3) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Sat, 25 Feb 2023 15:26:46 -0600
 
-nala (0.12.2) unstable; urgency=medium
+orbit (0.12.2) unstable; urgency=medium
 
   [ Bug Fixes ]
   * Deadlock when using dialog as the debconf frontend
@@ -133,7 +133,7 @@ nala (0.12.2) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Wed, 08 Feb 2023 20:37:24 -0600
 
-nala (0.12.1) unstable; urgency=medium
+orbit (0.12.1) unstable; urgency=medium
 
   [ Bug Fixes ]
   * Add python3-debian as a dependency (closes: #1028245)
@@ -141,7 +141,7 @@ nala (0.12.1) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Wed, 11 Jan 2023 21:45:57 -0600
 
-nala (0.12.0) unstable; urgency=medium
+orbit (0.12.0) unstable; urgency=medium
 
   [ Changes ]
   * Add Turkish translation
@@ -163,7 +163,7 @@ nala (0.12.0) unstable; urgency=medium
   * Unable to select version if available in multiple repos
   * Search end-of-text regexp not finding matches
   * Search printing duplicate results
-  * Python site packages causing Nala to crash
+  * Python site packages causing Orbit to crash
   * Crash if local .deb is missing installed size
   * Claiming all pkgs are up to date when lock fails
   * Unable to install packages from a local repository
@@ -174,14 +174,14 @@ nala (0.12.0) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Tue, 20 Dec 2022 19:56:01 -0600
 
-nala (0.11.1) unstable; urgency=medium
+orbit (0.11.1) unstable; urgency=medium
 
   [ Changes ]
   * Use source epoch for man page date
 
  -- Blake Lee <blake@volian.org>  Tue, 02 Aug 2022 22:37:07 -0400
 
-nala (0.11.0) unstable; urgency=medium
+orbit (0.11.0) unstable; urgency=medium
 
   [ Changes ]
   * Lower `fetch` concurrent tests from 50 to 25 improving consistency
@@ -211,7 +211,7 @@ nala (0.11.0) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Mon, 01 Aug 2022 19:17:19 -0400
 
-nala (0.10.0) unstable; urgency=medium
+orbit (0.10.0) unstable; urgency=medium
 
   [ Changes ]
   * Add config option to pass arguments to install hooks
@@ -230,7 +230,7 @@ nala (0.10.0) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Tue, 19 Jul 2022 00:03:28 -0400
 
-nala (0.9.1) unstable; urgency=medium
+orbit (0.9.1) unstable; urgency=medium
 
   [ Bug Fixes ]
   * `upgrade` fails sometimes when using install hooks
@@ -239,7 +239,7 @@ nala (0.9.1) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Thu, 09 Jun 2022 10:47:49 -0400
 
-nala (0.9.0) unstable; urgency=medium
+orbit (0.9.0) unstable; urgency=medium
 
   [ Changes ]
   * Add a version `diff` in the new version column to increase readability
@@ -250,7 +250,7 @@ nala (0.9.0) unstable; urgency=medium
   * Add configuration option for pre and post install hooks
 
   [ Bug Fixes ]
-  * Nala stating that it was unable to determine why packages were
+  * Orbit stating that it was unable to determine why packages were
     held even if it was able too
   * `fetch` ask prompt not defaulting to yes
   * Exception when using tab completion if the `pkgcache.bin` file
@@ -258,7 +258,7 @@ nala (0.9.0) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Mon, 23 May 2022 15:53:49 -0400
 
-nala (0.8.2) unstable; urgency=medium
+orbit (0.8.2) unstable; urgency=medium
 
   [ Changes ]
   * Add helper for common incorrect commands
@@ -272,7 +272,7 @@ nala (0.8.2) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Fri, 06 May 2022 12:43:00 -0400
 
-nala (0.8.1) unstable; urgency=medium
+orbit (0.8.1) unstable; urgency=medium
 
   [ Bug Fixes ]
   * KeyError exception when installing local `.deb` files
@@ -281,7 +281,7 @@ nala (0.8.1) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Sun, 24 Apr 2022 20:44:14 -0400
 
-nala (0.8.0) unstable; urgency=medium
+orbit (0.8.0) unstable; urgency=medium
 
   [ Changes ]
   * Add `-n --names`, `-i --installed`, `-u --upgradable`, `-v --virtual`
@@ -302,17 +302,17 @@ nala (0.8.0) unstable; urgency=medium
   * Remove options to update the cache from `show`, `list` and `search`
   * Raise max connections per mirror to 3. This helps when downloading
     a lot of small files.
-  * Add lock file so you can't run two instances of `nala` where packages
+  * Add lock file so you can't run two instances of `orbit` where packages
     will be manipulated
   * Add `purged` section to the history file to keep track of when
     a transaction is a purge vs remove
   * Add `User-Installed` section to the history file to keep track of
-    packages explicitly installed with `nala`. This will not add their
+    packages explicitly installed with `orbit`. This will not add their
     dependencies into the list, only what was specified to be installed.
     Packages installed with `apt` will not make it into this list, but
-    packages removed with `apt` will be removed the next time `nala` writes
+    packages removed with `apt` will be removed the next time `orbit` writes
     the history file
-  * Add `history --installed` to view these packages. And `--nala-installed`
+  * Add `history --installed` to view these packages. And `--orbit-installed`
     for the `list` and `search` commands
   * Add `--assume-no` switch to complement `--assume-yes`
   * Improve the column formatting during the install summary
@@ -331,49 +331,49 @@ nala (0.8.0) unstable; urgency=medium
   * Exception due to compatibility with older versions of `history.json`
   * The number of connections to mirrors not actually being limited
   * Sometimes not downloading a package properly. This was a rare bug
-  * Not being able to use SOCKS proxy with `nala`. This requires the
+  * Not being able to use SOCKS proxy with `orbit`. This requires the
     `python3-socksio` package, which is now a Recommends
   * Not being able to `purge` packages that have been removed but have
     config files that remain on the system. AKA rc state
   * `dpkg` progress bar not always hitting 100% on completion
-  * Exception when piping input into `nala`
+  * Exception when piping input into `orbit`
 
  -- Blake Lee <blake@volian.org>  Fri, 22 Apr 2022 12:29:32 -0400
 
-nala (0.7.3) unstable; urgency=medium
+orbit (0.7.3) unstable; urgency=medium
 
   [ Bug Fixes ]
   * Fix Debian files with the help of <stephanlachnit@debian.org>
 
  -- Blake Lee <blake@volian.org>  Mon, 04 Apr 2022 12:40:02 -0400
 
-nala (0.7.2) unstable; urgency=medium
+orbit (0.7.2) unstable; urgency=medium
 
   [ Bug Fixes ]
-  * CRITICAL: Nala not erroring when downloading unauthenticated packages
+  * CRITICAL: Orbit not erroring when downloading unauthenticated packages
   * Exception when reading older history files
 
  -- Blake Lee <blake@volian.org>  Sun, 03 Apr 2022 14:37:03 -0400
 
-nala (0.7.1) unstable; urgency=medium
+orbit (0.7.1) unstable; urgency=medium
 
   [ Bug Fixes ]
   * No error when a package can't be found during install
   * Not following redirects when downloading
   * Handle connection errors when updating package list similar to apt
-  * `Nala Update` not showing packages that are upgradable
+  * `Orbit Update` not showing packages that are upgradable
 
  -- Blake Lee <blake@volian.org>  Sun, 27 Mar 2022 16:23:21 -0400
 
-nala (0.7.0) unstable; urgency=medium
+orbit (0.7.0) unstable; urgency=medium
 
   [ Changes ]
   * Add `--sources` switch to `fetch` and don't enable them by default
   * Improve local deb install messages
   * Add `autoremove`/`autopurge` commands
-  * Add config file in `/etc/nala/nala.conf`. The current two configs
+  * Add config file in `/etc/orbit/orbit.conf`. The current two configs
     1. A toggle to disable the scrolling text
-    2. A toggle to disable Nala auto-removing by default
+    2. A toggle to disable Orbit auto-removing by default
   * Add `upgrade --exclude` to allow a package not to be upgraded
   * Tweak colors to better support light terminals
   * `update` is no longer an alias for `upgrade`. It will now function
@@ -393,7 +393,7 @@ nala (0.7.0) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Fri, 25 Mar 2022 15:07:51 -0400
 
-nala (0.6.0) unstable; urgency=medium
+orbit (0.6.0) unstable; urgency=medium
 
   [ Changes ]
   * Add `--no-install-recommends` and `--install-suggests`
@@ -403,39 +403,39 @@ nala (0.6.0) unstable; urgency=medium
   * Improved the handling of virtual packages
   * Improve error handling and other information
   * Improve handling of local `.deb` packages
-  * Remove `/var/log/nala/nala.log` considering the history is
+  * Remove `/var/log/orbit/orbit.log` considering the history is
     an exact replica of this.
   * You can now specify a version of a package the same way you can
-    with `apt`. `nala install nala=0.6.0`
+    with `apt`. `orbit install orbit=0.6.0`
   * Several performance improvements
   * Add Reinstalling and Downgrading into the summary
   * Use the `dpkg --status-fd` for advancing the progress bar
   * Add fish completion
 
   [ Bug Fixes ]
-  * CRITICAL: Nala would install packages that have a bad hash sum
+  * CRITICAL: Orbit would install packages that have a bad hash sum
   * Force `LANG=C` for parsing `dpkg` output as to not break in
     languages that aren't English. `--raw-dpkg` will switch back
-    to your language, but Nala will not format the text or show
+    to your language, but Orbit will not format the text or show
     a progress bar.
   * Packages are uninstallable if it has virtual packages
     in recommends or suggests
   * Bash-completion incompatible with zsh
   * Live display shows wrong title when fixing broken packages
   * Summary shows extra packages won't be installed when they are
-  * Several bugs related to Nala running through a pipe
+  * Several bugs related to Orbit running through a pipe
   * Not being able to install virtual packages like `steam` or `mate`
 
  -- Blake Lee <blake@volian.org>  Fri, 11 Mar 2022 23:03:58 -0500
 
-nala (0.5.2) unstable; urgency=medium
+orbit (0.5.2) unstable; urgency=medium
 
   [ Bug Fixes ]
-  * Nala won't allow package downgrades when installing local `.deb`
+  * Orbit won't allow package downgrades when installing local `.deb`
   * New and Old version numbers switched in upgrade summary
   * Some post install notices not showing the full message
   * dpkg progress bar sometimes going over the total
-  * Nala not writing to `/var/log/nala/term.log`
+  * Orbit not writing to `/var/log/orbit/term.log`
   * Many fixes related to ascii compatibility mode
   * Not being able to install from repo with pip
   * `history` opening cache when it doesn't need to
@@ -443,7 +443,7 @@ nala (0.5.2) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Wed, 23 Feb 2022 15:47:15 -0500
 
-nala (0.5.1) unstable; urgency=medium
+orbit (0.5.1) unstable; urgency=medium
 
   [ Bug Fixes ]
   * Can't install packages that have virtual packages in suggests
@@ -454,7 +454,7 @@ nala (0.5.1) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Tue, 22 Feb 2022 11:45:03 -0500
 
-nala (0.5.0) unstable; urgency=medium
+orbit (0.5.0) unstable; urgency=medium
 
   [ Changes ]
   * Change `--noninteractive` switch to `--non-interactive`
@@ -462,36 +462,36 @@ nala (0.5.0) unstable; urgency=medium
   * Add `--fix-broken` and `--no-fix-broken` switches
   * Add fish completion
   * Add `--no-install-recommends` and `--install-suggests`
-  * Nala now shows Recommended or Suggested packages when they
+  * Orbit now shows Recommended or Suggested packages when they
     aren't due to be installed.
   * Change bash-completion to be compatible with zsh
 
   [ Bug Fixes ]
   * `fetch` setting release to sid if it's unable to determine release
   * Unable to install local `.deb` that doesn't have dependencies
-  * Nala checking `priority: required` instead of essential
-  * Nala not showing packages kept back during an upgrade
-  * Nala sometimes not notifying that a reboot is required
+  * Orbit checking `priority: required` instead of essential
+  * Orbit not showing packages kept back during an upgrade
+  * Orbit sometimes not notifying that a reboot is required
   * Install hangs when non-interactive due to `need-restart` bug
 
  -- Blake Lee <blake@volian.org>  Mon, 21 Feb 2022 18:41:44 -0500
 
-nala (0.4.2) unstable; urgency=medium
+orbit (0.4.2) unstable; urgency=medium
 
   [ Bug Fixes ]
   * Formatting breaks with `apt-listbugs` if bugs aren't present
 
  -- Blake Lee <blake@volian.org>  Sat, 19 Feb 2022 07:40:34 -0500
 
-nala (0.4.1) unstable; urgency=medium
+orbit (0.4.1) unstable; urgency=medium
 
   [ Bug Fixes ]
-  * Nala deadlocking due to `apt-listbugs`
-  * Nala not formatting `apt-listdifferences` properly
+  * Orbit deadlocking due to `apt-listbugs`
+  * Orbit not formatting `apt-listdifferences` properly
 
  -- Blake Lee <blake@volian.org>  Fri, 18 Feb 2022 23:08:15 -0500
 
-nala (0.4.0) unstable; urgency=medium
+orbit (0.4.0) unstable; urgency=medium
 
   [ Changes ]
   * Replace threaded downloader with an async one
@@ -502,20 +502,20 @@ nala (0.4.0) unstable; urgency=medium
   * Add initial support for installing local debs
 
   [ Bug Fixes ]
-  * Nala not showing `pacstall` `-deb` packages properly
+  * Orbit not showing `pacstall` `-deb` packages properly
   * Filler sometimes inserted wrong during list update
   * History not logging files that were auto-removed
   * `dpkg` panel title saying updating during a history operation
   * Progress bar showing `100%` when all operations haven't completed
   * Scroll bar title `Updating Packages` when it is fetching archives
-  * Nala throwing exception on broken packages
+  * Orbit throwing exception on broken packages
   * Several bugs related to operations on packages with no candidate
   * Fetch not working on Pop!_OS
-  * History file corrupting if Nala is interrupted at just the right moment
+  * History file corrupting if Orbit is interrupted at just the right moment
 
  -- Blake Lee <blake@volian.org>  Mon, 07 Feb 2022 15:39:23 -0500
 
-nala (0.3.0) unstable; urgency=medium
+orbit (0.3.0) unstable; urgency=medium
 
   * Replaced aria2 with internal downloader
   * Improved the show command's output
@@ -528,37 +528,37 @@ nala (0.3.0) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Sat, 22 Jan 2022 15:56:25 -0500
 
-nala (0.2.1) unstable; urgency=medium
+orbit (0.2.1) unstable; urgency=medium
 
-  * Critical bug fix. `nala clean` attempts to remove files
+  * Critical bug fix. `orbit clean` attempts to remove files
     in the root directory due to the apt_pkg config not being
     initialized.
 
  -- Blake Lee <blake@volian.org>  Tue, 11 Jan 2022 16:10:41 -0500
 
-nala (0.2.0) unstable; urgency=medium
+orbit (0.2.0) unstable; urgency=medium
 
-  * Nala is now distributed with a nuitka binary
-  * Nala now uses rich for the update progress
-  * Improved `nala fetch` reliability and performance
+  * Orbit is now distributed with a nuitka binary
+  * Orbit now uses rich for the update progress
+  * Improved `orbit fetch` reliability and performance
   * History file format is now pure json and more readable
-  * Nala's clean command no longer subprocesses `apt clean`
-  * Nala transactions with `--download-only` no longer make it
+  * Orbit's clean command no longer subprocesses `apt clean`
+  * Orbit transactions with `--download-only` no longer make it
     into the history file.
 
  -- Blake Lee <blake@volian.org>  Mon, 10 Jan 2022 17:57:24 -0500
 
-nala (0.1.4) unstable; urgency=medium
+orbit (0.1.4) unstable; urgency=medium
 
   * Fixed a bug where nothing can download
   * Added error handling for url requests
 
  -- Blake Lee <blake@volian.org>  Tue, 28 Dec 2021 08:32:25 -0500
 
-nala (0.1.3) unstable; urgency=medium
+orbit (0.1.3) unstable; urgency=medium
 
   * Security fixes
-  * Fixed a bug where `nala --update` would throw an exception
+  * Fixed a bug where `orbit --update` would throw an exception
   * Fixed a bug where using Ubuntu mirrors.txt in sources.list
   * A lot of code refactoring and optimizations
   * `fetch` distro detection should be more reliable, but only
@@ -566,7 +566,7 @@ nala (0.1.3) unstable; urgency=medium
 
  -- Blake Lee <blake@volian.org>  Mon, 27 Dec 2021 17:39:44 -0500
 
-nala (0.1.2) unstable; urgency=medium
+orbit (0.1.2) unstable; urgency=medium
 
   * Big holiday update
   * debconf is now fully supported, along with apt-listchanges
@@ -577,25 +577,25 @@ nala (0.1.2) unstable; urgency=medium
   * Added --raw-dpkg in case you want regular ugly output
   * Added wildcard* for install and remove commands
   * Some History updates, you will likely need to remove your
-    old history file at /var/lib/nala/history
+    old history file at /var/lib/orbit/history
   * While we're still in early development mandatory dpkg-debug
-    will be added to /var/log/nala
+    will be added to /var/log/orbit
   * Made general formatting changes
 
  -- Blake Lee <blake@volian.org>  Sun, 19 Dec 2021 12:26:54 -0500
 
-nala (0.1.1) unstable; urgency=medium
+orbit (0.1.1) unstable; urgency=medium
 
   * Big changes to output formatting
   * Added --verbose global switch
   * Added clean command
-  * Nala now uses a debug log file for --debug mode
+  * Orbit now uses a debug log file for --debug mode
   * A few bug fixes.
 
  -- Blake Lee <blake@volian.org>  Mon, 06 Dec 2021 09:29:38 -0500
 
-nala (0.1.0) unstable; urgency=medium
+orbit (0.1.0) unstable; urgency=medium
 
-  * nala experimental release
+  * orbit experimental release
 
  -- Blake Lee <blake@volian.org>  Mon, 29 Nov 2021 15:12:55 -0500

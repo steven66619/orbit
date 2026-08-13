@@ -1,3 +1,3 @@
-debian/nala.fish usr/share/fish/vendor_completions.d/
-debian/_nala usr/share/zsh/vendor-completions/
-nala.conf etc/nala/
+debian/orbit.fish usr/share/fish/vendor_completions.d/
+debian/_orbit usr/share/zsh/vendor-completions/
+orbit.conf etc/orbit/

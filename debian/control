@@ -1,4 +1,4 @@
-Source: nala
+Source: orbit
 Priority: optional
 Section: admin
 Maintainer: Volian Developers <volian-devel@volian.org>
@@ -8,7 +8,7 @@ Build-Depends:
   ca-certificates,
   python3,
   cargo,
-  rustc,
+  rustc (>= 1.95),
   libapt-pkg-dev,
   pkg-config,
   libssl-dev,
@@ -16,17 +16,18 @@ Build-Depends:
   dh-sequence-bash-completion,
 Rules-Requires-Root: no
 Standards-Version: 4.6.2
-Homepage: https://gitlab.com/volian/nala
-Vcs-Git: https://gitlab.com/volian/nala.git
-Vcs-Browser: https://gitlab.com/volian/nala
+Homepage: https://github.com/steven66619/orbit
+Vcs-Git: https://github.com/steven66619/orbit.git
+Vcs-Browser: https://github.com/steven66619/orbit
 
-Package: nala
+Package: orbit
 Architecture: any
 Depends:
   ${shlibs:Depends},
   ${misc:Depends},
   apt,
+Suggests: aria2,
 Description: Commandline frontend for the APT package manager
- Nala is a frontend for the APT package manager. It keeps APT's package
+ Orbit is a frontend for the APT package manager. It keeps APT's package
  semantics while presenting package operations in a clearer, more inspectable
  format before changes are committed.

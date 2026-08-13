@@ -1,22 +1,22 @@
-nala (0.17.0) unstable; urgency=medium
+orbit (0.17.0) unstable; urgency=medium
 
-  This package now builds the Rust implementation of Nala.
+  This package now builds the Rust implementation of Orbit.
 
-  /etc/nala/nala.conf and the History are incompatible.
+  /etc/orbit/orbit.conf and the History are incompatible.
 
  -- Blake Lee <blake@volian.org>  Wed, 20 May 2026 00:00:00 -0500
 
-nala (0.15.0) unstable; urgency=medium
+orbit (0.15.0) unstable; urgency=medium
 
-  Nala hooks have been removed. You should use apt hooks.
+  Orbit hooks have been removed. You should use apt hooks.
 
  -- Blake Lee <blake@volian.org>  Tue, 23 Jan 2024 23:37:08 -0600
 
-nala (0.9.0) unstable; urgency=medium
+orbit (0.9.0) unstable; urgency=medium
 
-  The configuration file for Nala at `/etc/nala/nala.conf`
+  The configuration file for Orbit at `/etc/orbit/orbit.conf`
   has been changed to toml. This change is BREAKING as the older config
-  file will no longer work. Nala will still run with the old config,
+  file will no longer work. Orbit will still run with the old config,
   but there will be a syntax error and it will use the program defaults.
 
  -- Blake Lee <blake@volian.org>  Mon, 23 May 2022 15:53:49 -0400
